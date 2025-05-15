@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 const directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
                     "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let forecast = [];
 
 function generateContent(content){
     const date = new Date();
@@ -81,7 +82,7 @@ app.post('/search', async (req, res)=>{
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${yourAPI}`);
         const response_forecast = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${yourAPI}&days=7`)
         const newcontent = generateContent(response.data);
-        const forecast = processForecast(response_forecast.data.list,address);
+        forecast = processForecast(response_forecast.data.list,address);
         newcontent.place = address;
         forecast[0]= newcontent;
         //console.log(newcontent);
@@ -97,6 +98,13 @@ app.post('/search', async (req, res)=>{
         });
     }
 })
+
+app.post("/forecast", (req,res)=>{
+    res.render("index.ejs",{
+        content: forecast,
+        index: req.body.index
+    });
+});
 
 app.listen(port, ()=>{
     console.log("Listening at port: "+port);

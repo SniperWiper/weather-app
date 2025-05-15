@@ -21,7 +21,6 @@ body{
 }
 #searchbox{
     grid-column: span 2;
-    /*border:solid;*/
     display:flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +38,6 @@ body{
     padding-left: 15px;
 }
 #placebox{
-    /*border:solid;*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -50,7 +48,6 @@ body{
     font-weight: 550;
 }
 #contentbox{
-    /*border:solid;*/
     padding-left: 40px;
     padding-right: 40px;
 }
@@ -65,7 +62,6 @@ body{
     border-bottom: 1px solid white;
 }
 #iconbox{
-    /*border:solid;*/
     grid-row: span 2 ;
     display:flex;
     flex-direction: column;
@@ -73,7 +69,6 @@ body{
 }
 
 #forecastbox{
-    /*border: solid;*/
     grid-column: span 2; 
     padding-left: 40px;
     padding-right: 100px;
@@ -84,7 +79,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
-#datebox div{
+#datebox button{
     height:95px;
     width: 90px;
     background-color: rgb(255, 255, 255, 0.3);
@@ -93,7 +88,15 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: none;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500; 
+    font-style: normal;
+    color: white
 }
+
 #temptext{
     margin: 0;
 }

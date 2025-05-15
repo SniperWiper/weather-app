@@ -71,11 +71,14 @@
         <div style="margin-top: 20px; " id="datebox">
             <h3>5 Day <br>Forecast:</h3>
             <% for (var i=0; i<5;i++) {%>
-            <div> 
-               <%= content[i].date %> <%= content[i].month %> 
-               <img height="40px" width="40px" src="./images/<%= content[i].weather.toLowerCase();%>.svg">
-               <h4 style="margin:0"><%=  content[i].temp %> °C %></h4>
-            </div>
+            <form action="/forecast" method="POST">
+            <input type="hidden" name="index" value=<%= i %>>
+            <button type="submit">
+            <%= content[i].date %> <%= content[i].month %> 
+            <img height="40px" width="40px" src="./images/<%= content[i].weather.toLowerCase();%>.svg">
+            <h4 style="margin:0"><%=  content[i].temp %> °C %></h4>
+            </form>
+            </button>
             <% } %>
         </div>
     </div>
