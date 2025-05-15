@@ -1,0 +1,118 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500; 
+    font-style: normal;
+    color: white
+}
+
+#box1{
+    height: 550px;
+    width: 850px;
+    background-image: linear-gradient(to bottom right, rgb(0, 204, 255),rgb(166, 0, 255));
+    border-radius: 2%;
+    display: grid;
+    grid-template: 1fr 0.5fr 4fr 2fr/ 4fr 2fr;
+}
+#searchbox{
+    grid-column: span 2;
+    /*border:solid;*/
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+#submit{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+#searchbar{
+    width:500px;
+    height: 40px;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+#placebox{
+    /*border:solid;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#placebox h1{
+    font-weight: 550;
+}
+#contentbox{
+    /*border:solid;*/
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#contentbox ul{
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#contentbox li{
+    padding: 7px 0;
+    border-bottom: 1px solid white;
+}
+#iconbox{
+    /*border:solid;*/
+    grid-row: span 2 ;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#forecastbox{
+    /*border: solid;*/
+    grid-column: span 2; 
+    padding-left: 40px;
+    padding-right: 100px;
+    padding-bottom: 5px;
+    
+}
+#datebox{
+    display: flex;
+    justify-content: space-between;
+}
+#datebox div{
+    height:95px;
+    width: 90px;
+    background-color: rgb(255, 255, 255, 0.3);
+    border-radius: 5%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#temptext{
+    margin: 0;
+}
+#iconbox h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+
+#iconbox h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: 0;
+}
+#notfound{
+    grid-column: span 2;
+    grid-row: span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
