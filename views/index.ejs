@@ -13,7 +13,7 @@
    <div id="box1">
     <div id="searchbox">
        <form action="/search" method="POST">
-    <input style="border:none" type="text" id="searchbar" name="place" placeholder="search for City">
+    <input style="border:none" type="text" id="searchbar" name="place" placeholder="Search weather by city name">
     <button style="border:none" type="submit" id="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -73,12 +73,14 @@
             <% for (var i=0; i<5;i++) {%>
             <form action="/forecast" method="POST">
             <input type="hidden" name="index" value=<%= i %>>
-            <button type="submit">
+            <button type="submit" style="border: none; background: none; cursor: pointer; padding:0%; margin:0">
+            <div>
             <%= content[i].date %> <%= content[i].month %> 
             <img height="40px" width="40px" src="./images/<%= content[i].weather.toLowerCase();%>.svg">
             <h4 style="margin:0"><%=  content[i].temp %> °C %></h4>
-            </form>
+            </div>
             </button>
+            </form>
             <% } %>
         </div>
     </div>
