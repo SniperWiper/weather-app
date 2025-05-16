@@ -75,7 +75,7 @@ app.post('/search', async (req, res)=>{
     try{
         const response_google = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.body.place}&key=${googleAPI}`);
         const location = response_google.data.results[0].geometry.location;
-        console.log(response_google.data.results[0]);
+        //console.log(response_google.data.results[0]);
         const latitude = location.lat;
         const longitude = location.lng;
         const address = response_google.data.results[0].formatted_address;
@@ -84,8 +84,13 @@ app.post('/search', async (req, res)=>{
         const newcontent = generateContent(response.data);
         forecast = processForecast(response_forecast.data.list,address);
         newcontent.place = address;
-        forecast[0]= newcontent;
+        if(newcontent.date===forecast[0].date){
+            forecast[0]=newcontent
+        }else{
+            forecast.unshift(newcontent);
+        }
         //console.log(newcontent);
+        console.log(forecast);
         res.render("index.ejs",{
             content: forecast,
             index: 0
@@ -100,10 +105,23 @@ app.post('/search', async (req, res)=>{
 })
 
 app.post("/forecast", (req,res)=>{
-    res.render("index.ejs",{
+    try{
+        res.render("index.ejs",{
         content: forecast,
         index: req.body.index
     });
+    if (forecast.length===0||!forecast){
+        res.render("index.js",{
+            message: "Start Searching To get started!",
+            image: "search-city"
+        })
+    }
+} catch(error){
+        res.render("index.ejs", {
+            message: "Start Searching To get started!",
+            image: "search-city"
+        })
+    }
 });
 
 app.listen(port, ()=>{
