@@ -15,7 +15,6 @@ A Node.js web app using Express.js to display current weather and a 5-day foreca
 - Axios for API calls
 - OpenWeatherMap & Google Geocoding APIs
 - CSS with Montserrat/Caveat fonts
-- jQuery (minimal use)
 
 ## Prerequisites
 - Node.js (v14+)
@@ -23,7 +22,7 @@ A Node.js web app using Express.js to display current weather and a 5-day foreca
 - API keys: [OpenWeatherMap](https://openweathermap.org/api), [Google Geocoding](https://developers.google.com/maps/documentation/geocoding)
 
 ## Installation
-1. Clone repo: `git clone <url> && cd <folder>`
+1. Clone repo: `git clone https://github.com/SniperWiper/weather-app && cd weather-app`
 2. Install: `npm install`
 3. Create `.env`:
    ```env
@@ -61,6 +60,3 @@ A Node.js web app using Express.js to display current weather and a 5-day foreca
 
 ## Contributing
 Fork, branch, commit, push, and submit a pull request.
-
-## License
-MIT License
