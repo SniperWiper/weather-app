@@ -71,6 +71,9 @@ body{
     padding: 7px 0;
     border-bottom: 1px solid white;
 }
+#contentbox br{
+    display:none;
+}
 #iconbox{
     grid-row: span 2 ;
     display:flex;
@@ -173,26 +176,31 @@ body{
         margin-top: -10px;
         margin-bottom: 0;
     }
-
+    li svg{
+        height:40px;
+        width:40px;
+    }
     #contentbox li{
-        display:none;
+        display:none ;
+        border-bottom: none;
     }
     #contentbox li:nth-child(3),
     #contentbox li:nth-child(5){
         display: list-item;
+        display:grid;
+        grid-template-columns:3fr 7fr;
+        height: 60px;
+    }
+    #contentbox br{
+        display:inline;
     }
     #contentbox ul{
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
     }
-    #forecastbox{
-        display: flex;
-        flex-direction: column;
+    #datebox h3{
+        display:none;
     }
-    #forecastbox br{
-        display: none;
-    }
-    #forecastbox h3{
-        margin-bottom: -10px;
-    }
+    
 }
