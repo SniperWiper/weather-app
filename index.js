@@ -1,6 +1,8 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import axios from 'axios'
+import express from 'express';
+import bodyParser from 'body-parser';
+import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const port = 3000;
 const app = express();
@@ -52,9 +54,8 @@ function processForecast(forecast, address) {
     return newforecast;
 }
 
-
-const yourAPI='a8d2ae81efa30f035ef17956e14e96dc';
-const googleAPI= 'AIzaSyCXaNcaN0DUotKgjX-5UsWEQJwRcEatdgI';
+const yourAPI=process.env.openweatherAPI; //Enter your API keys from openweather and google's Geolocation api
+const googleAPI= process.env.googleAPI;
 
 app.get('/',async (req, res)=>{
     try{
